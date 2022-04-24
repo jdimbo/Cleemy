@@ -78,6 +78,11 @@ namespace Cleemy.Application
                 return new("Description is mandatory", null);
             }
 
+            if (user.Currency != currency)
+            {
+                return new("user Currency is not equal to the expense Currency", null);
+            }
+
             Expense? expenseExist = context.Expense.FirstOrDefault(e => e.UserId == entity.UserId && e.Date == entity.Date);
             if (expenseExist != null)
             {
