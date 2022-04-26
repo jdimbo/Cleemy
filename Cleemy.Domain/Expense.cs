@@ -9,7 +9,7 @@
         public int Id { get; set; }
         public string Description { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
         public ExpenseTypeEnum ExpenseType { get; set; }
         public Decimal Amount { get; set; }
        

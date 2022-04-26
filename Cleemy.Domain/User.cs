@@ -17,10 +17,6 @@ namespace Cleemy.Domain
         public int CurrencyId { get; set; }
 
         public virtual Currency Currency { get; set; }
-        /// <summary>
-        /// the expenses linked to the user
-        /// </summary>
-        public virtual ICollection<Expense> Expenses { get; set; }
 
     }
 }

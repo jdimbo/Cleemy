@@ -10,9 +10,9 @@ namespace Cleemy.Infrastructure.Data
 {
     public class CleemyDbContext : DbContext
     {
-        public DbSet<Expense> Expense { get; set; }
-        public DbSet<User> User { get; set; }
-        public DbSet<Currency> Currency { get; set; }
+        public virtual DbSet<Expense> Expense { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Currency> Currency { get; set; }
 
 
         public string DbPath { get; }

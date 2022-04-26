@@ -9,7 +9,7 @@ namespace Cleemy.Application
 {
     public interface IExpenseService
     {
-        Task<List<Expense>> GetExpensesAsync(int? userId, string sortColumn);
+        Task<List<Expense>> GetExpensesAsync(int? userId, string? sortColumn);
 
         Task<(string, Expense?)> AddAsync(ExpenseCreateModel entity);
     }

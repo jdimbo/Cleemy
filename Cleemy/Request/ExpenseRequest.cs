@@ -3,7 +3,7 @@
     public class ExpenseRequest
     {
         public string Description { get; set; }
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
         public string Type { get; set; }
         public Decimal Amount { get; set; }
 

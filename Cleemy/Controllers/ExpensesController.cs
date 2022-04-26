@@ -25,7 +25,7 @@ namespace Cleemy.Api.Controllers
         [HttpGet()]
         [ProducesResponseType(typeof(IList<ExpenseResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IEnumerable<ExpenseResponse>> Get(int? userId, string sortColumn)
+        public async Task<IEnumerable<ExpenseResponse>> Get(int? userId, string? sortColumn)
         {
 
             List<Expense> expenses = await expenseService.GetExpensesAsync(userId, sortColumn);

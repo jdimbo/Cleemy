@@ -18,7 +18,7 @@ namespace Cleemy.Application
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<List<Expense>> GetExpensesAsync(int? userId, string sortColumn)
+        public async Task<List<Expense>> GetExpensesAsync(int? userId, string? sortColumn)
         {
             IQueryable<Expense> queryable = context.Expense.Include(e => e.User).Include(e => e.Currency).AsNoTracking();
 
@@ -48,45 +48,45 @@ namespace Cleemy.Application
         {
             if (entity is null)
             {
-                return new ( "entity is empty", null );
+                return new (ErrorCodes.EXPENSE_ENTITY_IS_NULL, null );
             }
 
             Currency? currency = context.Currency.FirstOrDefault(f => f.Symbol == entity.Currency);
 
             if (currency is null)
             {
-                return new("currency is not valid", null);
+                return new(ErrorCodes.EXPENSE_CURRENCY_NOT_FOUND, null);
             }
 
             User? user = context.User.FirstOrDefault(f => f.Id == entity.UserId);
 
             if (user is null)
             {
-                return new("user is not exist", null);
+                return new(ErrorCodes.EXPENSE_USER_NOT_FOUND, null);
             }
 
-            if (entity.Date >= DateOnly.FromDateTime(DateTime.Now))
+            if (entity.Date >= DateTime.Now.Date)
             {
-                return new("date is equal to the current date or in the future", null);
+                return new(ErrorCodes.EXPENSE_DATE_FUTURE, null);
             }
-            if (entity.Date <= DateOnly.FromDateTime(DateTime.Now.AddMonths(-3)))
+            if (entity.Date <= DateTime.Now.Date.AddMonths(-3))
             {
-                return new("date is lower to the current - three month", null);
+                return new(ErrorCodes.EXPENSE_DATE_PAST_3_MONTH, null);
             }
             if (string.IsNullOrWhiteSpace(entity.Description))
             {
-                return new("Description is mandatory", null);
-            }
+                return new(ErrorCodes.EXPENSE_DESCRITPTION_IS_MANDATORY, null);
+            } 
 
             if (user.Currency != currency)
             {
-                return new("user Currency is not equal to the expense Currency", null);
+                return new(ErrorCodes.EXPENSE_CURRENCY_NOT_USER_CURRENCY, null);
             }
 
-            Expense? expenseExist = context.Expense.FirstOrDefault(e => e.UserId == entity.UserId && e.Date == entity.Date);
+            Expense? expenseExist = context.Expense.FirstOrDefault(e => e.UserId == entity.UserId && e.Date.Date == entity.Date.Date);
             if (expenseExist != null)
             {
-                return new("Expense already exist for the same user and the same date", null);
+                return new(ErrorCodes.EXPENSE_ALREADY_EXISTS_SAME_DATE, null);
             }
 
             Expense newExpense = new Expense {

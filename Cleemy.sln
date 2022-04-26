@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cleemy.Application", "Cleem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cleemy.Infrastructure.Data", "Cleemy.Infrastructure.Data\Cleemy.Infrastructure.Data.csproj", "{D89B6FB0-AD75-4283-82D1-AC4BCB56DD82}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Test", "5 - Test", "{B4590745-CA6C-4F84-A833-0A29BEB7DA7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleemy.Test", "Cleemy.Test\Cleemy.Test.csproj", "{658E8F3F-BF60-468D-826C-3378416539E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{D89B6FB0-AD75-4283-82D1-AC4BCB56DD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D89B6FB0-AD75-4283-82D1-AC4BCB56DD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D89B6FB0-AD75-4283-82D1-AC4BCB56DD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{658E8F3F-BF60-468D-826C-3378416539E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{658E8F3F-BF60-468D-826C-3378416539E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{658E8F3F-BF60-468D-826C-3378416539E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{658E8F3F-BF60-468D-826C-3378416539E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{B4D61865-325D-4A22-9BFD-92D7F0E1239F} = {81FE2633-9984-4C82-BC87-709DC6B260B0}
 		{775EF915-B0BF-497A-A0DE-4D08EDCFAC44} = {00A80874-93D9-4C4E-A056-06893C909986}
 		{D89B6FB0-AD75-4283-82D1-AC4BCB56DD82} = {69EBFC6C-5140-49D3-8CC3-843DB7882E7D}
+		{658E8F3F-BF60-468D-826C-3378416539E2} = {B4590745-CA6C-4F84-A833-0A29BEB7DA7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3836F25-0F09-468A-85B1-B753800E2243}
